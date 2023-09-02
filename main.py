@@ -6,6 +6,7 @@ import cvzone
 import logging
 import os
 import sys
+import time
 
 from constants import *
 from tracker import update_counters
@@ -22,6 +23,7 @@ logging.basicConfig(
         logging.StreamHandler(sys.stdout)
     ]
 )
+
 model = YOLO(MODEL)
 logging.info("Model downloaded {}".format(MODEL))
 
@@ -38,13 +40,13 @@ last_positions2={}
 
 logging.info("Tracking video")
 
+
 while cap.isOpened():
     # Read a frame from the video
     success, frame = cap.read()
     if success:
         frame = cv2.resize(frame, (1024, 720))
         results = model.track(frame, persist=True)
-
         boxes = results[0].boxes
         id = boxes.id
         classes = boxes.cls
@@ -90,5 +92,6 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
+
 logging.info("Completed tracking")
 logging.info("people entered {}, people exit {}".format(enter, exit))
