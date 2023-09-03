@@ -2,7 +2,8 @@
 
 Model used : yolov8n
 
-1. Create a environment with python version 3.10
+1. Clone the repository.
+2. Create a environment with python version 3.10
   ```bash
     conda create -n venv python=3.10 -y
   ```
