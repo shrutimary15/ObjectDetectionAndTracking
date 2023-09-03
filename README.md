@@ -7,10 +7,12 @@ Model used : yolov8n
   ```bash
     conda create -n venv python=3.10 -y
   ```
-2. Activate the environment
+2. Activate the environment and then install the requirements.
    ```bash
    conda activate venv
+   pip install -r requirements.txt
    ```
+
 3. Create a folder named Artifacts and store the .mp4 file in that folder.
    
    ObjectDetectionAndTracking
